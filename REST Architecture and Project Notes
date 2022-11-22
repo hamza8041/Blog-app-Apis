@@ -1,0 +1,108 @@
+REST Architecture
+Similar as Client Server Architecture
+2 main Components
+1.	Client
+2.	Server
+
+Server involves web server which includes rest api and endpoints.
+Client would use those apis, it can be desktop, android or postman.
+Both components are independent.
+Client requests to server through http, after that apis would be executed and database might be used.
+For example a create request is sent to server so the server would run the api and create a new student.
+A response would be sent back to client in form.
+In both clients and server data exchange is being executed. Data can be in form of json, xml. 
+
+REST is a software architectural style.
+REPRESENTATIONAL STATE TRANSFER
+REPRESENTATIONAL : format (json, xml)
+STATE : DATA
+TRANSFER : transfer of data between 2 parties. 
+
+Informally some urls, constraints we follow.
+
+REST Architectural Constraints
+Client Server architecture (both should be independent)
+Stateless (no data should be stored on server, client can store its data)
+Cacheable (client can store data in cache for multiple requests)
+Layered Architecture 
+Uniform interface ( a unified way to interact)
+
+REST Concepts
+Resource
+Anything we want to expose to outside through our application.
+For ex  Library management system
+Book, users are resources 
+In student management system student, teacher, class and subject are resources.
+
+URI (Uniform Resource Indicator)
+It is used to identify a resource. A student to identify in sms.
+http:://localhost::8080/students 
+get
+this students in url is a URI
+Sub Resource
+A resource that is dependent on main resource.
+Comments in post are sub resource
+Students have multiple laptops.
+Students is a main resource while laptop is sub resource.
+A sub resource cannot exist without a resource
+
+http::localhotst:8080/students/12/laptops/60
+return laptop of id 60 of student 12
+laptop being the sub resource here
+
+HTTP Request Metods
+HTTP defined a set of request methods to indicate desired action to be performed for a given resource.
+Get post delete update
+
+HTTP Response Codes
+Client requested a post method to create for server. The server would response with a code. 
+200 OK (successful)
+201 Created (a new resource is created)
+401 Un Authorized (Authentication is required)
+404 (resource not found)
+500 internal server error (Error occurred on server and request cannot be fulfilled)
+
+Application
+We have to build a blogging app
+1.	User should create update delete and list posts. (Post API)
+2.	Should add update delete and comment on posts. (Comment API)
+3.	Categorize the post according to categories 
+4.	New user should be able to register on application. (login functionality as well)
+5.	Post include one pic too.
+
+What will we build
+Proper login and register API
+Post and comment apis
+Posts API includes pagination and sorting.
+Proper validation
+Proper exception handling
+Role based auth and role based security with apis.
+ADMIN role and normal user role.
+JWT based auth
+Document all apis with swagger.
+Deploy on cloud
+
+Resources for Blogging Application
+1.	User
+2.	Category
+3.	Post
+4.	Comment
+
+
+
+
+
+Project Notes
+Basics of Validation
+Java bean is validated with jsr380. 
+For validation different annotations are used like @notnull, @min.
+Hibernate Validator is the implementation of validation api.
+Imp annotations
+@notnull
+@size
+@email
+@min and @max
+@notempty
+Difference between empty and null?
+The main difference between null and empty is that the null is used to refer to nothing while empty is used to refer to a unique string with zero length.
+
