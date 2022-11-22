@@ -1,0 +1,43 @@
+Spring Security
+From start the spring security provides form based authentication. Convert this to 
+Basic Authentication 
+Every time an api needs to be called it would send username and password along it.
+JWT Authentication
+Json Web Token
+It is mostly used for securing REST APIs
+Best way to communicate security between client and server
+It follows Stateless authentication (nothing would be stored on server).
+Architecture of JWT
+3 PARTS
+1.	Header (algo+type)
+2.	Payload (Information about data)
+3.	Signature (encoded header + encoded payload + key)
+Header.payload.Signature
+
+JWT with Spring Security
+1.	Access your login api from client to server (username and password). 
+2.	Server would validate it.
+3.	Server would response with a json web token.
+4.	Pass the token in header.
+5.	A filter would authenticate the token first. 
+
+ 
+
+8 Steps to apply JWT
+1.	Add dependency (io.jsonweb)
+2.	Create JWTauthenticationEntrypoint class implements AuthenticationEntrypoint. (override a method)  
+Whenever an unauthorized user is trying to access an api this method ll be called and an exception ll be generated. 
+3.	Create JWTtokenHelper class. It ll have methods related to token. Generate, validate and others.
+
+4.	JWTAuthenticationFilter class extends OnceRequestfilter. (intercept our request to perform operations like
+a.	Get jwt from request
+b.	Validate token
+c.	Get user
+d.	Load user from token.
+e.	 Set Spring Security
+5.	Create JWTAuthResponse (send token in response and other data)
+6.	Configure JWT in Spring Security. Configure all above operations.
+7.	Create Login API to return token (Username and password to generate token)
+8.	Test the application.
+
+
